@@ -1,0 +1,1 @@
+json.array! @reetchers, partial: 'reetchers/reetcher', as: :reetcher

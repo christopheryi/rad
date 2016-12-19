@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Reetche Your Full Potential</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+</head>
+<body>
+</body>
+</html>
+<!-- Wrap all page content here -->
+<div id="wrap">
+  
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Reetche</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to 'Home', reetchers_path %></li>
+          <% if logged_in? %><li><%= link_to 'Dashboard', reetcher_path(Reetcher.last.id) %></li><% end %>
+          <li><%= link_to 'Articles', reetchers_path %></li>
+          <li><%= link_to 'Reads', reetchers_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Debt Reducer</a></li>
+              <li><a href="#">CD Matcher</a></li>>
+              <li><a href="#">Physical-Mental Test</a></li>
+              <li><a href="#">Quasi Bi-Molecular Indoctrination</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted credit">Reetche Organization <a href="http://www.reetche.com"></a> </p>
+  </div>
+</div>
+<p>
+
+<footer>
+<body>
+  <div id="container">
+    <div id="content">
+      <%= yield %>
+      <hr>
+      <h6>
+        <% if logged_in? %>
+          <%= "Logged in as #{current_user.email}" %>
+          <%= link_to "(logout)", logout_path %>
+        <% else %>
+          <%= link_to "(login)", login_path %>
+        <% end %>
+      </h6>
+    </div>
+  </div>
+</body>
+</footer>
+</html>

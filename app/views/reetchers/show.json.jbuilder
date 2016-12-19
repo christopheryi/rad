@@ -1,0 +1,1 @@
+json.partial! "reetchers/reetcher", reetcher: @reetcher
