@@ -13,7 +13,7 @@
 </html>
 <!-- Wrap all page content here -->
 <div id="wrap">
-  
+  <%= yield %>
   <!-- Fixed navbar -->
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -23,13 +23,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Reetche</a>
+        <a class="navbar-brand" href="#"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i> Reetche</a>
       </div>
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to 'Home', reetchers_path %></li>
-          <% if logged_in? %><li><%= link_to 'Dashboard', reetcher_path(Reetcher.last.id) %></li><% end %>
-          <li><%= link_to 'Articles', reetchers_path %></li>
+          <li><%= link_to 'Home', welcome_homepage_path %></li>
+          <% if logged_in? %><li><%= link_to 'Dashboard', user_path(User.last.id) %></li><% end %>
+          <li><%= link_to 'Articles', articles_path %></li>
           <li><%= link_to 'Reads', reetchers_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tools <b class="caret"></b></a>
@@ -52,12 +52,12 @@
   </div>
 </div>
 <p>
-
+<div class="container">
 <footer>
 <body>
   <div id="container">
     <div id="content">
-      <%= yield %>
+      
       <hr>
       <h6>
         <% if logged_in? %>
@@ -71,4 +71,5 @@
   </div>
 </body>
 </footer>
+</div>
 </html>

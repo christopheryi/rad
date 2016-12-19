@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218233020) do
+ActiveRecord::Schema.define(version: 20161219144500) do
+
+  create_table "articles", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "author_name"
+    t.text     "body"
+    t.integer  "article_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
 
   create_table "reetchers", force: :cascade do |t|
     t.string   "username",         null: false
@@ -23,5 +44,37 @@ ActiveRecord::Schema.define(version: 20161218233020) do
   end
 
   add_index "reetchers", ["email"], name: "index_reetchers_on_email", unique: true
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["article_id"], name: "index_taggings_on_article_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "age"
+    t.integer  "monthly_income"
+    t.integer  "monthly_expenses"
+    t.integer  "investments"
+    t.integer  "liquid_assets"
+    t.integer  "non_liquid_assets"
+    t.integer  "total_debt"
+    t.integer  "avg_debt_rate"
+    t.integer  "savings_goal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

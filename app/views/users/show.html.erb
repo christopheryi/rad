@@ -1,0 +1,213 @@
+
+<div class="container">
+  <h3> <%= @user.first_name %>'s Dashboard </h3>
+
+  <div class="panel panel-default">
+    <div class="container">
+      <p class="container">
+        <div class="col-md-3">
+          <p class="container">
+            | <strong>Name:</strong> <%= User.last.first_name %><br />
+            | <strong>Age: </strong><%= User.last.age %><br />
+            | <strong>Monthly Salary:</strong> $<%= User.last.monthly_income %><br />
+            | <strong>Monthly Expenses:</strong> $<%= User.last.monthly_expenses %><br />
+            | <strong>Investments:</strong> $<%= User.last.investments %><br />
+            | <strong>Liquid Assets:</strong> $<%= User.last.liquid_assets %><br />
+            | <strong>Non-Liquid Assets:</strong> $<%= User.last.non_liquid_assets %><br />
+            | <strong>Oustanding Debt: </strong> $<%= User.last.total_debt%><br />
+            | <strong>Average Interest Rate: </strong><%= User.last.avg_debt_rate %><br />
+            | <strong>Total Savings Goal: </strong><%= User.last.savings_goal %><br />
+         </p>
+         <p class="container">
+          <%= link_to 'Edit', edit_user_path(User.last) %>
+          <%= link_to 'Delete', User.last, method: :delete %>
+    
+         </p>
+        </div>
+      </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <p class="container">    
+            <p><strong>Current Net Worth:</strong> $<%= @user.net_worth %></p>
+            <p><strong>Net Worth in One Year:</strong> $<%= @user.net_worth_yr_1 %></p>
+            <p><strong>Total Monthly Savings:</strong> $<%= @user.monthly_savings %></p>
+            <p><strong>Total Yearly Savings:</strong> $<%= @user.yearly_savings %></p>
+            <p><strong>Approximate Months to Goal:</strong> <%= @user.months_to_goal %></p>
+            <p><strong>Approximate Years to Goal:</strong> <%= @user.years_to_goal %></p>
+            <p><strong>Approximate Paid For Debt:</strong> $<%= @user.yearly_debt_total %></p>
+          </p>
+       </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <p class="container">
+          <p><%= @user.emergency_goal %></p>
+          <p><%= @user.cash_debt_ratio %> </p>
+          <%= @user.display %>
+          <!--<%= ((@user.monthly_savings).to_s+" "+" "+" ")*12 %>-->
+          <p> You are paying approximately <strong>$<%= @user.yearly_debt_total %><%= @user.formatter(@user.yearly_debt_total) %></strong> per year for interest payments on your debt. </p>
+      </div>      
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+  <div class="row">
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="container">
+          <p class="container">
+            <div class="col-md-5">
+            <head>
+              <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+              <script type="text/javascript">
+                google.charts.load('current', {'packages':['corechart']});
+
+                google.charts.setOnLoadCallback(drawChart);
+
+      // Callback that creates and populates a data table,
+      // instantiates the pie chart, passes in the data and
+      // draws it.
+                function drawChart() {
+
+        // Create the data table.
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Income');
+                data.addColumn('number', 'Financials');
+                data.addRows([
+                  ['Non-Liquid Assets', <%= @user.non_liquid_assets %>],
+                  ['Liquid Assets', <%= @user.liquid_assets %>],
+                  ['Investments', <%= @user.investments %>]
+                ]);
+
+        // Set chart options
+                var options = {'title':'Snapshop Summary',
+                                'width':500,
+                                'height':350};
+
+        // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+                    chart.draw(data, options);
+                  }
+                </script>
+              </head>
+
+              <body>
+    <!--Div that will hold the pie chart-->
+                <div id="chart_div"></div>
+              </body>
+            </div>
+
+
+
+
+<div class="container">
+<div class="row">
+  <div class="col-md-7">
+      <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Net worth', 'Goal Shortage'],
+          ['Year 0',  <%= @user.net_worth %>, <%=@user.short%>],
+          ['Year 1',  <%= @user.net_worth_yr_1 %>, <%=@user.short_yr_1%>],
+          ['Year 2',  <%= @user.net_worth_yr_2 %>, <%=@user.short_yr_2%>],
+          ['Year 3',  <%= @user.net_worth_yr_3 %>, <%=@user.short_yr_3%>],
+          ['Year 4',  <%= @user.net_worth_yr_4 %>, <%=@user.short_yr_4%>],
+          ['Year 5',  <%= @user.net_worth_yr_5 %>, <%=@user.short_yr_5%>]
+        ]);
+
+        var options = {
+          title: 'Net Worth',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="curve_chart" style="width: 550px; height: 350px"></div>
+  </body>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="container">
+  <p>The two obvious routes to reach you goal in a shorter period of time are listed below:
+    <u>
+      <li>Lower your Expenses</li>
+      <li>Increase your Income</li>
+    </u>
+  </p>
+  <p>
+    Each route has it's own respective benefits and difficulties, but we suggest
+    focusing on increasing your income as the primary method to reach your goal quicker. 
+  </p>
+  <p>The options below have been put in no particular order, scaled in difficulty from 1-5 (5 being the hardest) </p>
+  
+</div>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Option</th>
+      <th>Difficulty</th>
+      <th>Examples</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Part-Time Work</td>
+      <td>2</td>
+      <td>Part-Time Sales, Cashier, Part-Time Admin Assistant, Waiter, Ride Sharing Services</td>
+      <td>Lower Pay, Easy to Find</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>"Better" Full Time Work</td>
+      <td>2</td>
+      <td>Any job/career within your line of work that will pay more.</td>
+      <td>Pay increase may not be substancial. Could be very fufilling if passionate about the work. </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Start Business</td>
+      <td>4</td>
+      <td>A small business, franchise, consulting, ecommerce website, start-up idea that you may be interested in.</td>
+      <td>Own Boss, Potential for Substancial Income, High Risk</td>
+    </tr>
+        <tr>
+      <th scope="row">4</th>
+      <td>Investments</td>
+      <td>5</td>
+      <td>Stocks, High Interest Bonds, Limited-Partnerships, Start-Ups, etc.. </td>
+      <td>Considered extremely risky, it is recommended to avoid these income strategies until significant wealth is established.</td>
+    </tr>
+        <tr>
+      <th scope="row">5</th>
+      <td>Hobby</td>
+      <td>1</td>
+      <td>Do anything you love you doing, and get paid for it!</td>
+      <td>May be hard to make a modest income.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+<div class="container"><footer><%= link_to 'go back', users_path %><footer></div>

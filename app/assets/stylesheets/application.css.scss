@@ -12,5 +12,13 @@
  *
 
  */
+ 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+* {
+ font-size: 1.02em;;
+ font-family: Garamond;
+}

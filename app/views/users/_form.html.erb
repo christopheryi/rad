@@ -1,0 +1,70 @@
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+<div class="panel panel-default">
+<div class="container">
+<p class="container">
+  <div class="col-md-2">
+    <%= form_for @user do |f| %>
+      <a href="#" data-toggle="tooltip" title="Please enter your first name."><%= f.label :first_name %></a> <br />
+      <%= f.text_field :first_name %> <br />
+  
+      <a href="#" data-toggle="tooltip" title="Please enter your last name."><%= f.label :last_name %></a> <br />
+      <%= f.text_field :last_name %> <br />
+      
+      <a href="#" data-toggle="tooltip" title="Please enter your age."><%= f.label :age %></a> <br />
+      <%= f.text_field :age %> <br />
+
+      <a href="#" data-toggle="tooltip" title="Please enter your total after-tax monthly income."><%= f.label :monthly_income %></a> <br />
+      <%= f.text_field :monthly_income %> <br />
+
+      <a href="#" data-toggle="tooltip" title="Please enter your total estimated monthly expenses"><%= f.label :monthly_expenses %></a> <br />
+      <%= f.text_field :monthly_expenses %> <br />
+      
+      <a href="#" data-toggle="tooltip" title="Investments include stocks, precious metals, bonds, memorabilia.. "><%= f.label :investments %></a> <br />
+      <%= f.text_field :investments %> <br />
+
+      <a href="#" data-toggle="tooltip" title="Please include your total in cash, checking, and savings."><%= f.label :liquid_assets %></a> <br />
+      <%= f.text_field :liquid_assets %> <br />
+
+      <a href="#" data-toggle="tooltip" title="Please include non liquid assets such as house(% paid), car(% paid), etc.."><%= f.label :non_liquid_assets %></a> <br />
+      <%= f.text_field :non_liquid_assets %> <br />
+
+      <a href="#" data-toggle="tooltip" title="Please include all student loan, mortgage, credit card, car loan debt, etc.."><%= f.label :total_debt %></a> <br />
+      <%= f.text_field :total_debt %> <br />
+
+      <a href="#" data-toggle="tooltip" title="Please enter the estimated average interest rate between all your debt"><%= f.label :avg_debt_rate %></a> <br />
+      <%= f.text_field :avg_debt_rate %> <br />
+  
+      <a href="#" data-toggle="tooltip" title="Please enter the total amount you want to save."><%= f.label :savings_goal %></a> <br />
+      <%= f.text_field :savings_goal %> <br />
+  
+      <p></p>
+      <%= f.submit 'Save' %>
+
+    <% end %>
+      <p></p>
+      <p><i>Please remember to enter your total </strong>after-tax</strong> monthly income for a
+      more accurate analysis.</p></i>
+      <p></p>
+    
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <p></p>
+      <p class="container">
+        <p></p>
+        <img src="http://www.quantsavvy.com/images/stairs-to-success.jpg?crc=3925213502"">
+      </p>
+      
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+</div>

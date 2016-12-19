@@ -1,0 +1,15 @@
+<p>space</p>
+<p>space</p>
+<div class="container">
+<h1>All Articles</h1>
+
+<ul id="articles">
+  <% @articles.each do |article| %>
+    <li>
+      <%= link_to article.title, article_path(article) %>
+    </li>
+  <% end %>
+</ul>
+<%= link_to "Create a New Article", new_article_path, class: "new_article" %>
+<footer> <%= link_to 'Back', users_path %> </footer>
+</div>

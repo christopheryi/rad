@@ -1,0 +1,17 @@
+<p>spaces</p>
+<p>more space</p>
+<div class="container">
+  <ul id="tags">
+  <% @tags.each do |tag| %>
+    <li>
+      <%= link_to tag.name, tag_path(tag) %>
+    </li>
+  <% end %>
+</ul>
+
+
+<footer> <%= link_to 'Back', articles_path %> </footer>
+
+
+</div>
+</div>
