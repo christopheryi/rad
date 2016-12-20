@@ -6,18 +6,18 @@
     <div class="container">
       <p class="container">
         <div class="col-md-3">
-          <p class="container">
-            | <strong>Name:</strong> <%= User.last.first_name %><br />
-            | <strong>Age: </strong><%= User.last.age %><br />
-            | <strong>Monthly Salary:</strong> $<%= User.last.monthly_income %><br />
-            | <strong>Monthly Expenses:</strong> $<%= User.last.monthly_expenses %><br />
-            | <strong>Investments:</strong> $<%= User.last.investments %><br />
-            | <strong>Liquid Assets:</strong> $<%= User.last.liquid_assets %><br />
-            | <strong>Non-Liquid Assets:</strong> $<%= User.last.non_liquid_assets %><br />
-            | <strong>Oustanding Debt: </strong> $<%= User.last.total_debt%><br />
-            | <strong>Average Interest Rate: </strong><%= User.last.avg_debt_rate %><br />
-            | <strong>Total Savings Goal: </strong><%= User.last.savings_goal %><br />
-         </p>
+
+             <i class="fa fa-address-book" aria-hidden="true">&nbsp;&nbsp;&nbsp; </i><strong>Name:</strong> <%= User.last.first_name %><br />
+             <i class="fa fa-id-card" aria-hidden="true">&nbsp;</i> <strong>Age: </strong><%= User.last.age %><br />
+             <i class="fa fa-money" aria-hidden="true">&nbsp;</i> <strong>Monthly Salary:</strong> $<%= User.last.monthly_income %><br />
+             <i class="fa fa-usd" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i><strong>Monthly Expenses:</strong> $<%= User.last.monthly_expenses %><br />
+             <i class="fa fa-line-chart" aria-hidden="true">&nbsp;&nbsp;</i><strong>Investments:</strong> $<%= User.last.investments %><br />
+             <i class="fa fa-tint" aria-hidden="true">&nbsp;&nbsp;&nbsp;&nbsp;</i><strong>Liquid Assets:</strong> $<%= User.last.liquid_assets %><br />
+             <i class="fa fa-fire" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i><strong>Non-Liquid Assets:</strong> $<%= User.last.non_liquid_assets %><br />
+             <i class="fa fa-credit-card-alt" aria-hidden="true">&nbsp;</i><strong>Oustanding Debt: </strong> $<%= User.last.total_debt%><br />
+             <i class="fa fa-plus-square-o" aria-hidden="true">&nbsp;&nbsp;&nbsp;</i><strong>Average Interest Rate: </strong><%= User.last.avg_debt_rate %><br />
+             <i class="fa fa-trophy" aria-hidden="true">&nbsp;&nbsp;</i><strong>Total Savings Goal: </strong><%= User.last.savings_goal %><br />
+
          <p class="container">
           <%= link_to 'Edit', edit_user_path(User.last) %>
           <%= link_to 'Delete', User.last, method: :delete %>
@@ -28,38 +28,22 @@
     <div class="container">
       <div class="row">
         <div class="col-md-3">
-          <p class="container">    
-            <p><strong>Current Net Worth:</strong> $<%= @user.net_worth %></p>
-            <p><strong>Net Worth in One Year:</strong> $<%= @user.net_worth_yr_1 %></p>
-            <p><strong>Total Monthly Savings:</strong> $<%= @user.monthly_savings %></p>
-            <p><strong>Total Yearly Savings:</strong> $<%= @user.yearly_savings %></p>
-            <p><strong>Approximate Months to Goal:</strong> <%= @user.months_to_goal %></p>
-            <p><strong>Approximate Years to Goal:</strong> <%= @user.years_to_goal %></p>
-            <p><strong>Approximate Paid For Debt:</strong> $<%= @user.yearly_debt_total %></p>
-          </p>
+              <strong>Current Net Worth:</strong> $<%= @user.net_worth %></br>
+              <strong>Net Worth in One Year:</strong> $<%= @user.net_worth_yr_1 %></br>
+              <strong>Net Worth in Three Years:</strong> $<%= @user.net_worth_yr_3 %></br>
+              <strong>Net Worth in Five Years:</strong> $<%= @user.net_worth_yr_5 %></br>
+              <strong>Net Worth in Ten Years:</strong> $<%= @user.net_worth_yr_10 %></br>
+              <strong>Total Monthly Savings:</strong> $<%= @user.monthly_savings %></br>
+              <strong>Total Yearly Savings:</strong> $<%= @user.yearly_savings %></br>
+              <strong>Approximate Months to Goal:</strong> <%= @user.months_to_goal %></br>
+              <strong>Approximate Years to Goal:</strong> <%= @user.years_to_goal %></br>
+              <strong>Approximate Paid For Debt:</strong> $<%= @user.yearly_debt_total %></br>
+
        </div>
     <div class="container">
       <div class="row">
         <div class="col-md-5">
           <p class="container">
-          <p><%= @user.emergency_goal %></p>
-          <p><%= @user.cash_debt_ratio %> </p>
-          <%= @user.display %>
-          <!--<%= ((@user.monthly_savings).to_s+" "+" "+" ")*12 %>-->
-          <p> You are paying approximately <strong>$<%= @user.yearly_debt_total %><%= @user.formatter(@user.yearly_debt_total) %></strong> per year for interest payments on your debt. </p>
-      </div>      
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
-  <div class="row">
-    <div class="container">
-      <div class="panel panel-default">
-        <div class="container">
-          <p class="container">
-            <div class="col-md-5">
             <head>
               <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
               <script type="text/javascript">
@@ -84,8 +68,8 @@
 
         // Set chart options
                 var options = {'title':'Snapshop Summary',
-                                'width':500,
-                                'height':350};
+                                'width':450,
+                                'height':240};
 
         // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
@@ -97,7 +81,30 @@
               <body>
     <!--Div that will hold the pie chart-->
                 <div id="chart_div"></div>
-              </body>
+              </body>   
+      </div>      
+    </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+  <div class="row">
+    <div class="container">
+      <div class="panel panel-default">
+        <div class="container">
+          <p class="container">
+            <div class="col-md-5">
+          <p></p>
+          <body></body>
+          <h1></h1>
+          <h4><strong>Immediate Action Plan:</strong></h4>
+          <p><strong><%= @user.emergency_goal %></p>
+          <p><%= @user.cash_debt_ratio %> </p>
+          <%= @user.display %>
+          <!--<%= ((@user.monthly_savings).to_s+" "+" "+" ")*12 %>-->
+          <p> You are paying approximately $<%= @user.yearly_debt_total %><%= @user.formatter(@user.yearly_debt_total) %> per year for interest payments on your debt. </p></strong>
+          
             </div>
 
 
@@ -106,6 +113,7 @@
 <div class="container">
 <div class="row">
   <div class="col-md-7">
+      <p></p>
       <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
@@ -122,7 +130,7 @@
         ]);
 
         var options = {
-          title: 'Net Worth',
+          title: 'Net Worth v. Goal Shortage',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
@@ -133,8 +141,11 @@
       }
     </script>
   </head>
+  
   <body>
-    <div id="curve_chart" style="width: 550px; height: 350px"></div>
+
+    
+    <div id="curve_chart" style="width: 633px; height: 270px"></div>
   </body>
 
 </div>

@@ -19,6 +19,15 @@
 @import "font-awesome";
 
 * {
- font-size: 1.02em;;
- font-family: Garamond;
+ font-size: 1.01em;;
+ font-family: "Garamond";
+}
+
+html,body
+{
+    width: 101%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }

@@ -70,6 +70,9 @@ class User < ActiveRecord::Base
   def net_worth_yr_5
     (self.liquid_assets + self.non_liquid_assets - self.total_debt) + (self.yearly_savings * 5)
   end
+  def net_worth_yr_10
+    (self.liquid_assets + self.non_liquid_assets - self.total_debt) + (self.yearly_savings * 10)
+  end
   def months_to_goal
     ((self.savings_goal - self.net_worth) / self.monthly_savings) 
   end
@@ -83,7 +86,7 @@ class User < ActiveRecord::Base
     if self.liquid_assets > 5000
       "It's fantastic you've saved enough, especially for an emergency."
     else
-      "Put away 10% of everything you make into a emergency_pool until you've reached $5,000 in liquid assets. You are currently short by $#{@short}."
+      "Put away 10% of everything you make into a emergency pool until you've reached $5000 in liquid assets. You are currently short by $#{@short}."
     end
     
   end

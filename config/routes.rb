@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :tags
+  resources :reads
  
   get 'login'  => 'reetcher_sessions#new'
   get 'logout' => 'reetcher_sessions#destroy'
